@@ -49,12 +49,17 @@ android {
         versionCode 1
         versionName '1.0.0'
     }
-
+   signingConfigs {
+        release {
+            storeFile file('/Users/irfannfauzan/documents/otaqu-devtest.jks')
+            storePassword 'otaquqwerty'
+            keyAlias = 'otaqu-devtest'
+            keyPassword 'otaquqwerty'
+        }
+    }
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -65,4 +70,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.4.0'
+
 }
